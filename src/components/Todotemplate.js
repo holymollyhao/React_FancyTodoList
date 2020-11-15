@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import DateTemplate from "./Date";
+import Todolisttemplate from "./Todolisttemplate";
 
 const TodoTemplateBlock = styled.div`
   display: flex;
@@ -21,15 +22,20 @@ const UpperTemplateBlock = styled.div`
 
 const LowerTemplateBlock = styled.div`
   flex: 2;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 `;
 
-function TodoTemplate({ children }) {
+function TodoTemplate({ children, todolists }) {
   return (
     <TodoTemplateBlock>
       <UpperTemplateBlock>
         <DateTemplate />
       </UpperTemplateBlock>
-      <LowerTemplateBlock>{children}</LowerTemplateBlock>
+      <LowerTemplateBlock>
+        <Todolisttemplate todolist={todolists}>{children}</Todolisttemplate>
+      </LowerTemplateBlock>
     </TodoTemplateBlock>
   );
 }
