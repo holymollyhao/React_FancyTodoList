@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Date from "./Date";
+import DateTemplate from "./Date";
 
 const TodoTemplateBlock = styled.div`
   display: flex;
@@ -20,21 +20,14 @@ const UpperTemplateBlock = styled.div`
 `;
 
 const LowerTemplateBlock = styled.div`
-  flex: 3;
+  flex: 2;
 `;
 
 function TodoTemplate({ children }) {
-  const today = new Date();
-  const dateString = today.toLocaleDateString("ko-KR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric"
-  });
-  const dayName = today.toLocaleDateString("ko-KR", { weekday: "long" });
   return (
     <TodoTemplateBlock>
       <UpperTemplateBlock>
-        <Date date={10} />
+        <DateTemplate />
       </UpperTemplateBlock>
       <LowerTemplateBlock>{children}</LowerTemplateBlock>
     </TodoTemplateBlock>
