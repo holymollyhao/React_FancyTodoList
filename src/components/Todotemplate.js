@@ -33,6 +33,7 @@ const LowerTemplateBlock = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
 `;

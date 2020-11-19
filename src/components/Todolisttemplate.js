@@ -19,9 +19,15 @@ const Todoelemstyle = styled.div`
   .taskname {
     flex: 7;
   }
-
-  .deletebox {
+  .Deleteboxstyle {
     flex: 1;
+    color: #dee2e6;
+    &:hover {
+      color: #ff8787;
+    }
+    &:active {
+      color: #fa5252;
+    }
   }
 `;
 
@@ -49,7 +55,7 @@ function Todoelem({ todo }) {
     <Todoelemstyle>
       <Checkboxstyle done={todo.done}>{todo.done && <MdDone />}</Checkboxstyle>
       <div className="taskname">{todo.taskName}</div>
-      <div className="deletebox">a</div>
+      <MdDelete size={25} className="Deleteboxstyle" />
     </Todoelemstyle>
   );
 }
