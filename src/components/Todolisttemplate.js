@@ -11,17 +11,16 @@ const Todoelemstyle = styled.div`
   padding-left: 2rem;
   padding-right: 2rem;
   align-items: center;
-
-  .checkbox {
-    margin-right: 2rem;
+  &:hover {
+    ${MdDelete} {
+      display: initial;
+    }
   }
 
-  .taskname {
-    flex: 7;
-  }
   .Deleteboxstyle {
     flex: 1;
     color: #dee2e6;
+    display: none;
     &:hover {
       color: #ff8787;
     }
@@ -29,6 +28,17 @@ const Todoelemstyle = styled.div`
       color: #fa5252;
     }
   }
+`;
+
+const Taskboxstyle = styled.div`
+  flex: 7;
+  font-size: 21px;
+  color: #495057;
+  ${(props) =>
+    props.done &&
+    css`
+      color: #ced4da;
+    `}
 `;
 
 const Checkboxstyle = styled.div`
@@ -54,7 +64,7 @@ function Todoelem({ todo }) {
   return (
     <Todoelemstyle>
       <Checkboxstyle done={todo.done}>{todo.done && <MdDone />}</Checkboxstyle>
-      <div className="taskname">{todo.taskName}</div>
+      <Taskboxstyle done={todo.done}>{todo.taskName}</Taskboxstyle>
       <MdDelete size={25} className="Deleteboxstyle" />
     </Todoelemstyle>
   );
